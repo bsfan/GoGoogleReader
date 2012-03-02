@@ -21,6 +21,7 @@
 		A9908742150139710051B83A /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = A9908736150139710051B83A /* SBJsonWriter.m */; };
 		A990874515013ED80051B83A /* TODOList in Resources */ = {isa = PBXBuildFile; fileRef = A990874415013ED80051B83A /* TODOList */; };
 		A990874715013F050051B83A /* account.plist in Resources */ = {isa = PBXBuildFile; fileRef = A990874615013F050051B83A /* account.plist */; };
+		A9908749150141910051B83A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A9908748150141910051B83A /* README.md */; };
 		A9DD24AE150113490038DC1C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9DD24AD150113490038DC1C /* UIKit.framework */; };
 		A9DD24B0150113490038DC1C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9DD24AF150113490038DC1C /* Foundation.framework */; };
 		A9DD24B2150113490038DC1C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9DD24B1150113490038DC1C /* CoreGraphics.framework */; };
@@ -60,6 +61,7 @@
 		A9908736150139710051B83A /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		A990874415013ED80051B83A /* TODOList */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODOList; sourceTree = "<group>"; };
 		A990874615013F050051B83A /* account.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = account.plist; sourceTree = "<group>"; };
+		A9908748150141910051B83A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		A9DD24A9150113490038DC1C /* GoGoogleReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoGoogleReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9DD24AD150113490038DC1C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A9DD24AF150113490038DC1C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -126,6 +128,7 @@
 		A9DD249E150113490038DC1C = {
 			isa = PBXGroup;
 			children = (
+				A9908748150141910051B83A /* README.md */,
 				A990874615013F050051B83A /* account.plist */,
 				A990874415013ED80051B83A /* TODOList */,
 				A9DD24B3150113490038DC1C /* GoGoogleReader */,
@@ -233,6 +236,7 @@
 				A9DD24C41501134A0038DC1C /* ViewController.xib in Resources */,
 				A990874515013ED80051B83A /* TODOList in Resources */,
 				A990874715013F050051B83A /* account.plist in Resources */,
+				A9908749150141910051B83A /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
