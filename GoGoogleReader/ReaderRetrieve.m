@@ -232,8 +232,22 @@
 - (void)parser:(SBJsonStreamParser *)parser foundObject:(NSDictionary *)dict {
     NSLog(@"hellow orld : dict %@ " , dict);
     NSArray *subscriptions = [dict objectForKey:@"subscriptions"];
-    for(NSDictionary *d in subscriptions)
-        NSLog(@"----%@", d);
+    NSMutableDictionary *labelSubscriptionMap =[[NSMutableDictionary alloc] init];
+ 
+    for(NSDictionary *entry in subscriptions){
+        NSArray *categories = [entry objectForKey:@"categories"];
+        NSLog(@"Catgories: %@", categories);
+        NSString *label = (categories.count == 0) ?  @"NO GROUP" : [[categories objectAtIndex:0] objectForKey:@"label"];
+        NSMutableArray *arr =  [labelSubscriptionMap objectForKey:label];
+        if(arr == nil){
+            arr = [[NSMutableArray alloc] init];
+            [labelSubscriptionMap setObject:arr forKey:label];
+        }
+
+        [arr addObject:entry];
+    }
+    
+    NSLog(@"how many labels: %@", labelSubscriptionMap);
 }
 
 @end
