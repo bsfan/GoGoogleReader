@@ -87,6 +87,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A990874315013E510051B83A /* SBJson */ = {
+			isa = PBXGroup;
+			children = (
+				A990872B150139710051B83A /* SBJsonStreamWriter.h */,
+				A990872C150139710051B83A /* SBJsonStreamWriter.m */,
+				A990872D150139710051B83A /* SBJsonStreamWriterAccumulator.h */,
+				A990872E150139710051B83A /* SBJsonStreamWriterAccumulator.m */,
+				A990872F150139710051B83A /* SBJsonStreamWriterState.h */,
+				A9908730150139710051B83A /* SBJsonStreamWriterState.m */,
+				A9908731150139710051B83A /* SBJsonTokeniser.h */,
+				A9908732150139710051B83A /* SBJsonTokeniser.m */,
+				A9908733150139710051B83A /* SBJsonUTF8Stream.h */,
+				A9908734150139710051B83A /* SBJsonUTF8Stream.m */,
+				A9908735150139710051B83A /* SBJsonWriter.h */,
+				A9908736150139710051B83A /* SBJsonWriter.m */,
+				A990871E150139700051B83A /* NSObject+SBJson.h */,
+				A990871F150139700051B83A /* NSObject+SBJson.m */,
+				A9908720150139700051B83A /* SBJson.h */,
+				A9908721150139700051B83A /* SBJsonParser.h */,
+				A9908722150139700051B83A /* SBJsonParser.m */,
+				A9908723150139700051B83A /* SBJsonStreamParser.h */,
+				A9908724150139700051B83A /* SBJsonStreamParser.m */,
+				A9908725150139700051B83A /* SBJsonStreamParserAccumulator.h */,
+				A9908726150139700051B83A /* SBJsonStreamParserAccumulator.m */,
+				A9908727150139710051B83A /* SBJsonStreamParserAdapter.h */,
+				A9908728150139710051B83A /* SBJsonStreamParserAdapter.m */,
+				A9908729150139710051B83A /* SBJsonStreamParserState.h */,
+				A990872A150139710051B83A /* SBJsonStreamParserState.m */,
+			);
+			name = SBJson;
+			sourceTree = "<group>";
+		};
 		A9DD249E150113490038DC1C = {
 			isa = PBXGroup;
 			children = (
@@ -122,31 +154,7 @@
 				A9DD24BF1501134A0038DC1C /* ViewController.h */,
 				A9DD24C01501134A0038DC1C /* ViewController.m */,
 				A9DD24C21501134A0038DC1C /* ViewController.xib */,
-				A990871E150139700051B83A /* NSObject+SBJson.h */,
-				A990871F150139700051B83A /* NSObject+SBJson.m */,
-				A9908720150139700051B83A /* SBJson.h */,
-				A9908721150139700051B83A /* SBJsonParser.h */,
-				A9908722150139700051B83A /* SBJsonParser.m */,
-				A9908723150139700051B83A /* SBJsonStreamParser.h */,
-				A9908724150139700051B83A /* SBJsonStreamParser.m */,
-				A9908725150139700051B83A /* SBJsonStreamParserAccumulator.h */,
-				A9908726150139700051B83A /* SBJsonStreamParserAccumulator.m */,
-				A9908727150139710051B83A /* SBJsonStreamParserAdapter.h */,
-				A9908728150139710051B83A /* SBJsonStreamParserAdapter.m */,
-				A9908729150139710051B83A /* SBJsonStreamParserState.h */,
-				A990872A150139710051B83A /* SBJsonStreamParserState.m */,
-				A990872B150139710051B83A /* SBJsonStreamWriter.h */,
-				A990872C150139710051B83A /* SBJsonStreamWriter.m */,
-				A990872D150139710051B83A /* SBJsonStreamWriterAccumulator.h */,
-				A990872E150139710051B83A /* SBJsonStreamWriterAccumulator.m */,
-				A990872F150139710051B83A /* SBJsonStreamWriterState.h */,
-				A9908730150139710051B83A /* SBJsonStreamWriterState.m */,
-				A9908731150139710051B83A /* SBJsonTokeniser.h */,
-				A9908732150139710051B83A /* SBJsonTokeniser.m */,
-				A9908733150139710051B83A /* SBJsonUTF8Stream.h */,
-				A9908734150139710051B83A /* SBJsonUTF8Stream.m */,
-				A9908735150139710051B83A /* SBJsonWriter.h */,
-				A9908736150139710051B83A /* SBJsonWriter.m */,
+				A990874315013E510051B83A /* SBJson */,
 				A9DD24B41501134A0038DC1C /* Supporting Files */,
 				A9DD24CA150113AF0038DC1C /* ReaderRetrieve.h */,
 				A9DD24CB150113AF0038DC1C /* ReaderRetrieve.m */,
