@@ -13,8 +13,14 @@
 
 -(void)getRSSFromGoogle{
     NSLog(@"-------------");
-    NSString *gUserString = @"clarkhtse@gmail.com";
-    NSString *gPassString = @"";
+    
+    NSString *path = [[NSBundle mainBundle] bundlePath];
+    NSString *finalPath = [path stringByAppendingPathComponent:@"account.plist"];
+    NSDictionary *plistDictionary = [NSDictionary dictionaryWithContentsOfFile:finalPath];
+    
+    NSString *gUserString = [plistDictionary objectForKey:@"username"];
+    NSString *gPassString = [plistDictionary objectForKey:@"password"];
+    NSLog(@"===username: %@, password: %@", gUserString, gPassString);
     NSString *GOOGLE_CLIENT_AUTH_URL = @"https://www.google.com/accounts/ClientLogin?client=YourClient";
     NSString *gSourceString = @"YourClient";
     
