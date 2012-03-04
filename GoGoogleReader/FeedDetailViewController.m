@@ -1,22 +1,21 @@
 //
-//  SubscriptionViewController.m
+//  FeedDetailViewController.m
 //  GoGoogleReader
 //
 //  Created by Tuo Huang on 3/4/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "SubscriptionViewController.h"
 #import "FeedDetailViewController.h"
+#import "EntryViewController.h"
 
-@interface SubscriptionViewController () 
-    @property (strong, nonatomic) NSArray *subscriptionKeys;
+@interface FeedDetailViewController () 
+@property (strong,nonatomic) NSArray* sortedFeedList;
 @end
+@implementation FeedDetailViewController
 
-@implementation SubscriptionViewController
-
-@synthesize subscriptions = _subscriptions;
-@synthesize subscriptionKeys = _subscriptionKeys;
+@synthesize feedList = _feedList;
+@synthesize sortedFeedList = _sortedFeedList;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -40,9 +39,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"Subscriptions";
-    self.subscriptionKeys = [[self.subscriptions allKeys] sortedArrayUsingSelector:@selector(compare:)];
-    NSLog(@"-----------------%@", self.subscriptionKeys);
+    self.title = @"FeedList";
+    self.sortedFeedList = [self.feedList sortedArrayUsingComparator:^(id obj1, id obj2){
+        return [[obj1 objectForKey:@"title"] compare:[obj2 objectForKey:@"title"]];
+    }];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -85,27 +85,23 @@
 
 #pragma mark - Table view data source
 
-
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 
     // Return the number of rows in the section.
-    return [self.subscriptionKeys count];
+    return [self.feedList count];;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSUInteger row = [indexPath row];
     static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    
-    // Configure the cell...
-    int row = [indexPath row];
-    cell.textLabel.text = [self.subscriptionKeys objectAtIndex:row];
+    cell.textLabel.text = [[self.sortedFeedList objectAtIndex:row] objectForKey:@"title"];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
@@ -153,10 +149,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSInteger row = [indexPath row];
-    FeedDetailViewController *detailController = [[FeedDetailViewController alloc] init];
-    detailController.feedList = [self.subscriptions objectForKey:[self.subscriptionKeys objectAtIndex:row]];
-    [self.navigationController pushViewController:detailController animated:YES];
+    NSUInteger row = [indexPath row];
+    NSDictionary *feed = [self.sortedFeedList objectAtIndex:row];
+    EntryViewController *entryController = [[EntryViewController alloc] init];
+    entryController.title = [feed objectForKey:@"title"];
+    entryController.feedUrl = [feed objectForKey:@"htmlUrl"];
+    [self.navigationController pushViewController:entryController animated:YES];
+     
 }
 
 @end
