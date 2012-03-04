@@ -11,6 +11,9 @@
 
 @implementation ReaderRetrieve
 
+@synthesize username = _username;
+@synthesize password = _password;
+
 -(void)getRSSFromGoogle{
     NSLog(@"-------------");
     
@@ -20,6 +23,8 @@
     
     NSString *gUserString = [plistDictionary objectForKey:@"username"];
     NSString *gPassString = [plistDictionary objectForKey:@"password"];
+    //NSString *gUserString = self.username;
+    //NSString *gPassString = self.password;
     NSLog(@"===username: %@, password: %@", gUserString, gPassString);
     NSString *GOOGLE_CLIENT_AUTH_URL = @"https://www.google.com/accounts/ClientLogin?client=YourClient";
     NSString *gSourceString = @"YourClient";

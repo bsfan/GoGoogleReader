@@ -10,6 +10,8 @@
 #import "ReaderRetrieve.h"
 
 @implementation ViewController
+@synthesize username = _username;
+@synthesize password = _password;
 
 - (void)didReceiveMemoryWarning
 {
@@ -22,12 +24,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	ReaderRetrieve *reader = [[ReaderRetrieve alloc] init];
-    [reader getRSSFromGoogle];
+    self.username.returnKeyType = UIReturnKeyDone;
+    self.password.returnKeyType = UIReturnKeyDone;
+    self.password.secureTextEntry = YES;
+    self.username.text = @"just.test.ggr@gmail.com";
+    self.password.text = @"justatest";
 }
 
 - (void)viewDidUnload
 {
+    [self setUsername:nil];
+    [self setPassword:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -59,4 +66,19 @@
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
+- (IBAction)loginButtonPressed:(id)sender {
+    NSLog(@"username: %@, password: %@", self.username.text, self.password.text);
+    ReaderRetrieve *reader = [[ReaderRetrieve alloc] init];
+    reader.username = self.username.text;
+    reader.password = self.password.text;
+    [reader getRSSFromGoogle];
+}
+
+-(IBAction)textFieldDoneEditing:(UITextField *)textField{
+    [textField resignFirstResponder];
+}
+-(IBAction)backgroundTap:(id)sender{
+    [self.username resignFirstResponder];
+    [self.password resignFirstResponder];
+}
 @end
