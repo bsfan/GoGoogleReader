@@ -13,18 +13,19 @@
 
 @synthesize username = _username;
 @synthesize password = _password;
+@synthesize subscriptions = _subscriptions;
 
--(void)getRSSFromGoogle{
+-(NSDictionary *)getRSSFromGoogle{
     NSLog(@"-------------");
     
     NSString *path = [[NSBundle mainBundle] bundlePath];
     NSString *finalPath = [path stringByAppendingPathComponent:@"account.plist"];
     NSDictionary *plistDictionary = [NSDictionary dictionaryWithContentsOfFile:finalPath];
     
-    NSString *gUserString = [plistDictionary objectForKey:@"username"];
-    NSString *gPassString = [plistDictionary objectForKey:@"password"];
-    //NSString *gUserString = self.username;
-    //NSString *gPassString = self.password;
+    //NSString *gUserString = [plistDictionary objectForKey:@"username"];
+    //NSString *gPassString = [plistDictionary objectForKey:@"password"];
+    NSString *gUserString = self.username;
+    NSString *gPassString = self.password;
     NSLog(@"===username: %@, password: %@", gUserString, gPassString);
     NSString *GOOGLE_CLIENT_AUTH_URL = @"https://www.google.com/accounts/ClientLogin?client=YourClient";
     NSString *gSourceString = @"YourClient";
@@ -70,7 +71,7 @@
     
     if ([data length] > 0) {
         responseStr = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
-        NSLog(@"Response From Google: %@", responseStr);
+       // NSLog(@"Response From Google: %@", responseStr);
 //        NSLog(@"Response Data From Google: %@", data);
         responseStatus = [response statusCode];
         //dict = [[NSDictionary alloc] initWithDictionary:[response allHeaderFields]];
@@ -108,7 +109,7 @@
             u_int64_t now = abs(round([[NSDate date] timeIntervalSince1970] * 1000));
             NSURL *subscriptionListUrl = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.google.com/reader/api/0/subscription/list?output=json&client=scroll&ck=%qu", now]];
             
-            NSLog(@"==========send subscript ajax: %@", subscriptionListUrl);
+           // NSLog(@"==========send subscript ajax: %@", subscriptionListUrl);
             NSString *authParameter = [NSString stringWithFormat:@"GoogleLogin auth=%@", auth];
             
             NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:subscriptionListUrl cachePolicy:NSURLCacheStorageNotAllowed timeoutInterval:10];
@@ -129,7 +130,7 @@
            
             //convert to data to human-readabe string
             NSString *responseString = [[NSString alloc] initWithData:result encoding:NSASCIIStringEncoding];
-            NSLog(@"===============yes, %@", responseString);
+           // NSLog(@"===============yes, %@", responseString);
 
             
             SBJsonStreamParserAdapter *adapter =  [[SBJsonStreamParserAdapter alloc] init];
@@ -148,8 +149,13 @@
                 
             } else if (status == SBJsonStreamParserWaitingForData) {
                 NSLog(@"Parser waiting for more data");
-            }
-                
+            }else if(status == SBJsonStreamParserComplete){
+                NSLog(@"Parser done!");
+                NSLog(@"result %@", self.subscriptions);
+            }             
+            
+            
+            return self.subscriptions;
         }
         //403 = authentication failed.
         else if (responseStatus == 403) {
@@ -217,14 +223,16 @@
             authMessage = [authMessage stringByAppendingFormat:@"Internal Error. Please contact notoptimal.net for further assistance. Error: %@", [error localizedDescription] ];
         }
     }
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Authentication" message:authMessage delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+    [alertView show];
+    
     //NSLog (@"err localized description %@", [error localizedDescription]) ;
     //NSLog (@"err localized failure reasons %@", [error localizedFailureReason]) ;
     //NSLog(@"err code  %d", [error code]) ;
     //NSLog (@"err domain %@", [error domain]) ;
     
     
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Authentication" message:authMessage delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
-    [alertView show];
+    return nil;
 
 }
 
@@ -235,11 +243,10 @@
 }
 
 - (void)parser:(SBJsonStreamParser *)parser foundObject:(NSDictionary *)dict {
-    NSLog(@"hellow orld : dict %@ " , dict);
-    NSArray *subscriptions = [dict objectForKey:@"subscriptions"];
+    NSArray *subscriptionsArr = [dict objectForKey:@"subscriptions"];
     NSMutableDictionary *labelSubscriptionMap =[[NSMutableDictionary alloc] init];
  
-    for(NSDictionary *entry in subscriptions){
+    for(NSDictionary *entry in subscriptionsArr){
         NSArray *categories = [entry objectForKey:@"categories"];
         NSLog(@"Catgories: %@", categories);
         NSString *label = (categories.count == 0) ?  @"NO GROUP" : [[categories objectAtIndex:0] objectForKey:@"label"];
@@ -252,7 +259,10 @@
         [arr addObject:entry];
     }
     
-    NSLog(@"how many labels: %@", labelSubscriptionMap);
+
+    self.subscriptions = [NSDictionary dictionaryWithDictionary:labelSubscriptionMap];
+           NSLog(@"json parser parser done, %@", self.subscriptions);
+       NSLog(@"json parser parser don=====");
 }
 
 @end

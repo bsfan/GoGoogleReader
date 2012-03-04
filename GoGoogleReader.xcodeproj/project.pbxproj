@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A959FBB715034F9500A7583E /* SubscriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A959FBB615034F9500A7583E /* SubscriptionViewController.m */; };
 		A9908737150139710051B83A /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = A990871F150139700051B83A /* NSObject+SBJson.m */; };
 		A9908738150139710051B83A /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A9908722150139700051B83A /* SBJsonParser.m */; };
 		A9908739150139710051B83A /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A9908724150139700051B83A /* SBJsonStreamParser.m */; };
@@ -34,6 +35,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A959FBB515034F9500A7583E /* SubscriptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubscriptionViewController.h; sourceTree = "<group>"; };
+		A959FBB615034F9500A7583E /* SubscriptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubscriptionViewController.m; sourceTree = "<group>"; };
 		A990871E150139700051B83A /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJson.h"; sourceTree = "<group>"; };
 		A990871F150139700051B83A /* NSObject+SBJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJson.m"; sourceTree = "<group>"; };
 		A9908720150139700051B83A /* SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson.h; sourceTree = "<group>"; };
@@ -167,6 +170,8 @@
 				A9DD24B41501134A0038DC1C /* Supporting Files */,
 				A9DD24CA150113AF0038DC1C /* ReaderRetrieve.h */,
 				A9DD24CB150113AF0038DC1C /* ReaderRetrieve.m */,
+				A959FBB515034F9500A7583E /* SubscriptionViewController.h */,
+				A959FBB615034F9500A7583E /* SubscriptionViewController.m */,
 			);
 			path = GoGoogleReader;
 			sourceTree = "<group>";
@@ -263,6 +268,7 @@
 				A9908740150139710051B83A /* SBJsonTokeniser.m in Sources */,
 				A9908741150139710051B83A /* SBJsonUTF8Stream.m in Sources */,
 				A9908742150139710051B83A /* SBJsonWriter.m in Sources */,
+				A959FBB715034F9500A7583E /* SubscriptionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,10 +342,14 @@
 		A9DD24C81501134A0038DC1C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Tuo Huang (6VTP65UV9R)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Tuo Huang (6VTP65UV9R)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GoGoogleReader/GoGoogleReader-Prefix.pch";
 				INFOPLIST_FILE = "GoGoogleReader/GoGoogleReader-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "9CA0C4FD-4289-47EF-8D40-FD7DEC56E5AF";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9CA0C4FD-4289-47EF-8D40-FD7DEC56E5AF";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;

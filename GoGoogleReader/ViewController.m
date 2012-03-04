@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "ReaderRetrieve.h"
+#import "SubscriptionViewController.h"
 
 @implementation ViewController
 @synthesize username = _username;
@@ -24,6 +25,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.title = @"GoGoogleReader";
     self.username.returnKeyType = UIReturnKeyDone;
     self.password.returnKeyType = UIReturnKeyDone;
     self.password.secureTextEntry = YES;
@@ -71,7 +73,14 @@
     ReaderRetrieve *reader = [[ReaderRetrieve alloc] init];
     reader.username = self.username.text;
     reader.password = self.password.text;
-    [reader getRSSFromGoogle];
+    NSDictionary *result = [reader getRSSFromGoogle];
+    NSLog(@"============================================ %@", result);
+//    NSDate *future = [NSDate dateWithTimeIntervalSinceNow: 0.06 ];
+//    [NSThread sleepUntilDate:future];
+    SubscriptionViewController *subscriptionController = [[SubscriptionViewController alloc] init];
+    subscriptionController.subscriptions = result;
+
+    [self.navigationController pushViewController:subscriptionController animated:YES];
 }
 
 -(IBAction)textFieldDoneEditing:(UITextField *)textField{

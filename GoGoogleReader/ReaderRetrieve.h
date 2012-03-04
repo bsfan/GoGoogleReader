@@ -13,6 +13,9 @@
 @property (copy, nonatomic) NSString *username;
 @property (copy, nonatomic) NSString *password;
 
--(void)getRSSFromGoogle;
+@property (strong, nonatomic) NSDictionary *subscriptions;
+
+
+-(NSDictionary *)getRSSFromGoogle;
 
 @end
