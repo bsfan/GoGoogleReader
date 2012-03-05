@@ -8,6 +8,10 @@
 
 #import "EntryDetailsViewController.h"
 
+@interface EntryDetailsViewController()
+- (void) hideGradientBackground:(UIView*)theView;
+@end
+
 @implementation EntryDetailsViewController
 @synthesize webView;
 @synthesize activityIndicator;
@@ -36,14 +40,27 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    webView.scalesPageToFit = YES;
+    webView.scalesPageToFit = NO;
     webView.delegate = self;
     [webView loadHTMLString:htmlContent
                     baseURL:nil];
+    
     activityIndicator = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 32.0f, 32.0f)];
     [activityIndicator setCenter:self.view.center];
     [activityIndicator setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhite];
+    [self hideGradientBackground:webView];
     [self.view addSubview:activityIndicator];
+}
+
+- (void) hideGradientBackground:(UIView*)theView
+{
+    for (UIView* subview in theView.subviews)
+    {
+        if ([subview isKindOfClass:[UIImageView class]])
+            subview.hidden = YES;
+        
+        [self hideGradientBackground:subview];
+    }
 }
 
 -(void)webViewDidStartLoad:(UIWebView *)webView
