@@ -8,6 +8,7 @@
 
 #import "EntryViewController.h"
 #import "SBJson.h"
+#import "EntryDetailsViewController.h"
 
 
 @interface EntryViewController () 
@@ -206,13 +207,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    
+    EntryDetailsViewController *entryDetailController = [[EntryDetailsViewController alloc] initWithNibName:@"EntryDetailsViewController" bundle:nil];
+    NSLog(@"item: %@", [self.items objectAtIndex:indexPath.row]);
+    entryDetailController.title = [[self.items objectAtIndex:indexPath.row] objectForKey:@"title"]; 
+    entryDetailController.htmlContent = [[[self.items objectAtIndex:indexPath.row] objectForKey:@"content"] objectForKey:@"content"];
+    [self.navigationController pushViewController:entryDetailController animated:YES];
+    
 }
 
 

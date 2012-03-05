@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A959FBB715034F9500A7583E /* SubscriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A959FBB615034F9500A7583E /* SubscriptionViewController.m */; };
+		A95CA8551504FA64002369D3 /* EntryDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A95CA8531504FA64002369D3 /* EntryDetailsViewController.m */; };
+		A95CA8561504FA64002369D3 /* EntryDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A95CA8541504FA64002369D3 /* EntryDetailsViewController.xib */; };
 		A967998215038A7F004F022A /* FeedDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A967998115038A7F004F022A /* FeedDetailViewController.m */; };
 		A967998615038CB0004F022A /* EntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A967998515038CB0004F022A /* EntryViewController.m */; };
 		A9908737150139710051B83A /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = A990871F150139700051B83A /* NSObject+SBJson.m */; };
@@ -42,6 +44,9 @@
 /* Begin PBXFileReference section */
 		A959FBB515034F9500A7583E /* SubscriptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubscriptionViewController.h; sourceTree = "<group>"; };
 		A959FBB615034F9500A7583E /* SubscriptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubscriptionViewController.m; sourceTree = "<group>"; };
+		A95CA8521504FA64002369D3 /* EntryDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryDetailsViewController.h; sourceTree = "<group>"; };
+		A95CA8531504FA64002369D3 /* EntryDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryDetailsViewController.m; sourceTree = "<group>"; };
+		A95CA8541504FA64002369D3 /* EntryDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EntryDetailsViewController.xib; sourceTree = "<group>"; };
 		A967998015038A7F004F022A /* FeedDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedDetailViewController.h; sourceTree = "<group>"; };
 		A967998115038A7F004F022A /* FeedDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedDetailViewController.m; sourceTree = "<group>"; };
 		A967998415038CB0004F022A /* EntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryViewController.h; sourceTree = "<group>"; };
@@ -191,6 +196,9 @@
 				A967998115038A7F004F022A /* FeedDetailViewController.m */,
 				A967998415038CB0004F022A /* EntryViewController.h */,
 				A967998515038CB0004F022A /* EntryViewController.m */,
+				A95CA8521504FA64002369D3 /* EntryDetailsViewController.h */,
+				A95CA8531504FA64002369D3 /* EntryDetailsViewController.m */,
+				A95CA8541504FA64002369D3 /* EntryDetailsViewController.xib */,
 			);
 			path = GoGoogleReader;
 			sourceTree = "<group>";
@@ -264,6 +272,7 @@
 				A9C7751D150398FB0081F0CF /* Google Reader copy copy.png in Resources */,
 				A9C77520150399380081F0CF /* Google Reader copy copy @2.png in Resources */,
 				A9C7752415039A410081F0CF /* Default@2x.png in Resources */,
+				A95CA8561504FA64002369D3 /* EntryDetailsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +302,7 @@
 				A959FBB715034F9500A7583E /* SubscriptionViewController.m in Sources */,
 				A967998215038A7F004F022A /* FeedDetailViewController.m in Sources */,
 				A967998615038CB0004F022A /* EntryViewController.m in Sources */,
+				A95CA8551504FA64002369D3 /* EntryDetailsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
